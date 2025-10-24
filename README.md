@@ -42,8 +42,6 @@ npm run build
 npm start
 ```
 
-Visit **http://localhost:3000** to preview locally.
-
 ---
 
 ## 📄 License
