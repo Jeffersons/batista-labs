@@ -1,8 +1,6 @@
-"use client";
-
 import { HeroSection } from "@/components/HeroSection";
 
-export default function Home() {
+const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground font-['Inter']">
       <HeroSection />
@@ -20,4 +18,6 @@ export default function Home() {
       </footer>
     </main>
   );
-}
+};
+
+export default Index;
