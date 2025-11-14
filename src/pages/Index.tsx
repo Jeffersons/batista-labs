@@ -1,9 +1,11 @@
 import { HeroSection } from "@/components/HeroSection";
+import { AboutSection } from "@/components/AboutSection";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground font-['Inter']">
       <HeroSection />
+      <AboutSection />
       
       {/* Footer */}
       <footer className="relative py-8 border-t border-border">
