@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-import jeffersonPhoto from "@/assets/profile.jpg";
+import jeffersonPhoto from "@/assets/jefferson-photo.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/translations";
 
 export const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const { language } = useLanguage();
+  const t = translations[language].hero;
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -64,7 +68,7 @@ export const HeroSection = () => {
             {/* Info Cards */}
             <div className="space-y-4">
               <div className="inline-block mb-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-sm border border-primary/20">
-                <span className="text-sm font-mono text-primary">Senior iOS Engineer</span>
+                <span className="text-sm font-mono text-primary">{t.role}</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-tech-light via-tech-cyan to-tech-purple bg-clip-text text-transparent animate-gradient-shift" style={{ backgroundSize: '200% 200%' }}>
@@ -73,8 +77,8 @@ export const HeroSection = () => {
               
               <div className="p-6 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  De uma criança apaixonada por Pokémon a líder técnico em desenvolvimento mobile. 
-                  <span className="text-primary font-semibold"> 25+ anos</span> transformando código em experiências que impactam milhões.
+                  {t.description}{" "}
+                  <span className="text-primary font-semibold">{t.years}</span> {t.impact}
                 </p>
               </div>
 
@@ -84,38 +88,40 @@ export const HeroSection = () => {
                   className="bg-gradient-primary hover:shadow-glow-cyan transition-all duration-300"
                   onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                  Entre em Contato
+                  <Mail className="mr-2 h-5 w-5" />
+                  {t.contactButton}
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline"
-                  className="border-primary/50 hover:bg-primary/10 hover:border-primary transition-all duration-300"
-                  onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
+                  variant="outline" 
+                  className="border-primary/50 hover:bg-primary/10"
+                  onClick={() => window.open("https://github.com/Jeffersons", "_blank")}
                 >
-                  Ver Experiência
+                  <Github className="mr-2 h-5 w-5" />
+                  {t.projectsButton}
                 </Button>
               </div>
 
-              <div className="flex gap-4 mt-6">
-                <a 
-                  href="https://github.com/Jeffersons" 
-                  target="_blank" 
+              <div className="flex gap-4 pt-4">
+                <a
+                  href="https://github.com/Jeffersons"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-secondary/50 backdrop-blur-sm border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border hover:border-primary/50 transition-all duration-300"
                 >
                   <Github className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://linkedin.com/in/jeffsouzabatista" 
-                  target="_blank" 
+                <a
+                  href="https://linkedin.com/in/jeffersons"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-secondary/50 backdrop-blur-sm border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border hover:border-primary/50 transition-all duration-300"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a 
+                <a
                   href="mailto:jeffsouzabatista@gmail.com"
-                  className="p-3 rounded-full bg-secondary/50 backdrop-blur-sm border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                  className="p-3 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border hover:border-primary/50 transition-all duration-300"
                 >
                   <Mail className="w-5 h-5" />
                 </a>
@@ -123,14 +129,16 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-
-        <button 
-          onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
-        >
-          <ChevronDown className="w-8 h-8 text-primary" />
-        </button>
       </div>
+
+      {/* Scroll indicator */}
+      <button
+        onClick={scrollToAbout}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 animate-bounce"
+      >
+        <span className="text-sm font-mono">{t.scrollDown}</span>
+        <ChevronDown className="w-6 h-6" />
+      </button>
     </section>
   );
 };

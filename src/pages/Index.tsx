@@ -1,9 +1,16 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/translations";
 
 const Index = () => {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
+
   return (
     <main className="min-h-screen bg-background text-foreground font-['Inter']">
+      <LanguageSelector />
       <HeroSection />
       <AboutSection />
       
