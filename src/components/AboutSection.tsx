@@ -128,7 +128,7 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-24 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-24 pb-56 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background -z-10" />
       
