@@ -1,5 +1,9 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { StatsSection } from "@/components/StatsSection";
+import { SkillsSection } from "@/components/SkillsSection";
+import { ContactSection } from "@/components/ContactSection";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/translations";
@@ -13,6 +17,10 @@ const Index = () => {
       <LanguageSelector />
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
+      <StatsSection />
+      <SkillsSection />
+      <ContactSection />
       
       {/* Footer */}
       <footer className="relative py-8 border-t border-border">

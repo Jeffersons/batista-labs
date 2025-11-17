@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Code2, Rocket, Users, Award } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/translations";
 
@@ -38,13 +37,6 @@ export const AboutSection = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const stats = [
-    { icon: Code2, label: t.statsYears, value: "25+" },
-    { icon: Rocket, label: t.statsApps, value: "2" },
-    { icon: Users, label: t.statsUsers, value: language === "pt" ? "Milhões" : "Millions" },
-    { icon: Award, label: t.statsLanguages, value: "15+" },
-  ];
 
   const stories = [
     {
@@ -138,12 +130,12 @@ export const AboutSection = () => {
   return (
     <section id="about" ref={sectionRef} className="relative py-24 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background -z-10" />
       
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-tech-purple/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-tech-cyan/10 rounded-full blur-[150px]" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-tech-purple/10 rounded-full blur-[150px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-tech-cyan/10 rounded-full blur-[150px] -z-10" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
             {t.title} <span className="text-primary">{t.titleHighlight}</span>
@@ -195,7 +187,7 @@ export const AboutSection = () => {
                     >
                       <div className="flex items-center gap-2 mb-4 md:hidden">
                         <span className="text-3xl">{story.emoji}</span>
-                        <h3 className={`text-2xl font-bold ${story.gradient ? '' : `text-${story.color}`}`}>¢
+                        <h3 className={`text-2xl font-bold ${story.gradient ? '' : `text-${story.color}`}`}>
                           {story.title}
                         </h3>
                       </div>
@@ -210,25 +202,6 @@ export const AboutSection = () => {
                 </div>
               );
             })}
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 text-center"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                  transition: `all 0.5s ease-out ${0.8 + index * 0.1}s`,
-                }}
-              >
-                <stat.icon className="w-8 h-8 mx-auto mb-2 text-primary" />
-                <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

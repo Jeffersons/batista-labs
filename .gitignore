@@ -18,7 +18,7 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
-src/assets/jefferson-photo.png
+src/assets/jefferson-photo.webp
 
 # Logs
 npm-debug.log*

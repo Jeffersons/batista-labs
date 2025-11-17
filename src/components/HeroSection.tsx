@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-import jeffersonPhoto from "@/assets/jefferson-photo.png";
+import jeffersonPhoto from "@/assets/jefferson-photo.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/translations";
 
