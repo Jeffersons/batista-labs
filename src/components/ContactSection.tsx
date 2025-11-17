@@ -99,7 +99,7 @@ export const ContactSection = () => {
                     <span className="font-medium">GitHub</span>
                   </a>
                   <a 
-                    href="https://linkedin.com/in/jeffersons"
+                    href="https://linkedin.com/in/jeffsouzabatista"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 p-4 rounded-xl bg-secondary/50 hover:bg-primary/20 border border-border hover:border-primary/50 transition-all duration-300 flex items-center justify-center gap-2"
