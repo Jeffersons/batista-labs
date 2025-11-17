@@ -195,7 +195,7 @@ export const AboutSection = () => {
                     >
                       <div className="flex items-center gap-2 mb-4 md:hidden">
                         <span className="text-3xl">{story.emoji}</span>
-                        <h3 className="text-2xl font-bold text-primary">
+                        <h3 className={`text-2xl font-bold ${story.gradient ? '' : `text-${story.color}`}`}>¢
                           {story.title}
                         </h3>
                       </div>
